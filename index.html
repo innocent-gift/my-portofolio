@@ -386,6 +386,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .project-card:hover {
@@ -395,12 +396,23 @@
         
         .project-img {
             height: 180px;
-            background-color: var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
         }
         
         .project-content {
@@ -415,6 +427,38 @@
         .project-content p {
             color: var(--text);
             margin-bottom: 15px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .project-link.secondary {
+            background-color: var(--secondary);
+        }
+        
+        .project-link.secondary:hover {
+            background-color: #1a252f;
         }
         
         .tech-tags {
@@ -561,6 +605,20 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
+        /* Achievement Badges */
+        .achievement-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 10px 5px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
         /* Back to top button */
         .back-to-top {
             position: fixed;
@@ -640,6 +698,10 @@
                 width: 100%;
                 max-width: 250px;
             }
+            
+            .project-links {
+                flex-direction: column;
+            }
         }
         
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -690,6 +752,7 @@
         <h1>Nkurunziza Innocent</h1>
         <h2>Full Stack Web Developer</h2>
         <p class="tagline">Crafting digital experiences with clean code and innovative solutions</p>
+        
         <div class="btn-container">
             <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Hire Me</a>
             <a href="#project" class="btn btn-primary"><i class="fas fa-laptop-code"></i> View Projects</a>
@@ -711,20 +774,16 @@
                     <p>HTML5, CSS3, JavaScript (ES6+), responsive design, and modern frontend frameworks.</p>
                 </div>
                 <div class="skill-card">
-                    <h3><i class="fas fa-server"></i> Web Infrastructure</h3>
-                    <p>DNS management, hosting, deployment, performance optimization, and server administration.</p>
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <p>Node.js, Express, REST APIs, database design, and server-side programming.</p>
                 </div>
                 <div class="skill-card">
-                    <h3><i class="fab fa-java"></i> Java Programming</h3>
-                    <p>Object-oriented development, algorithms, data structures, and enterprise application development.</p>
-                </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-terminal"></i> Shell Scripting</h3>
-                    <p>Automation, system administration, and DevOps tasks using Bash and shell scripting.</p>
+                    <h3><i class="fab fa-react"></i> React Development</h3>
+                    <p>Building dynamic user interfaces with React, state management, and component-based architecture.</p>
                 </div>
                 <div class="skill-card">
                     <h3><i class="fas fa-database"></i> Database & SQL</h3>
-                    <p>Database design, query optimization, and data management with SQL and NoSQL databases.</p>
+                    <p>Database design, query optimization, MongoDB, and PostgreSQL for data management.</p>
                 </div>
                 <div class="skill-card">
                     <h3><i class="fas fa-chart-bar"></i> Data Analysis</h3>
@@ -732,7 +791,11 @@
                 </div>
                 <div class="skill-card">
                     <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-                    <p>Microsoft Office Suite, Google Workspace, Git, Docker, and various development tools.</p>
+                    <p>Git, Docker, Vercel, Microsoft Office Suite, Google Workspace, and various development tools.</p>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-terminal"></i> DevOps & Deployment</h3>
+                    <p>Shell scripting, automation, hosting, deployment, and performance optimization.</p>
                 </div>
             </div>
         </section>
@@ -750,6 +813,7 @@
                         <li>Created interactive learning materials using educational technology</li>
                     </ul>
                 </div>
+                
                 <div class="timeline-item">
                     <span class="timeline-date">Jan 2025 - Feb 2025</span>
                     <h3>Volunteer | UN Women, Kigali, Rwanda</h3>
@@ -759,6 +823,23 @@
                         <li>Created digital content for awareness campaigns reaching 10,000+ people</li>
                         <li>Assisted in organizing community events and workshops</li>
                     </ul>
+                </div>
+                
+                <!-- NEW: Code in Place Teaching Experience -->
+                <div class="timeline-item">
+                    <span class="timeline-date">Apr 2025 - Present</span>
+                    <h3>Python Mentor & Teaching Assistant | Code in Place, Stanford University</h3>
+                    <p>After successfully completing the Stanford Code in Place Python programming course, I volunteered to help other students master Python fundamentals.</p>
+                    <ul>
+                        <li>Assisted 15+ students in understanding Python concepts and debugging their code</li>
+                        <li>Conducted weekly study sessions to reinforce learning objectives</li>
+                        <li>Provided personalized feedback on programming assignments and final projects</li>
+                        <li>Created supplementary learning materials and practice exercises</li>
+                        <li>Helped students develop problem-solving skills and computational thinking</li>
+                    </ul>
+                    <div class="achievement-badge">
+                        <i class="fas fa-graduation-cap"></i> Stanford Code in Place Completion
+                    </div>
                 </div>
             </div>
         </section>
@@ -774,6 +855,12 @@
                     <p>Current GPA: 3.8/4.0</p>
                 </div>
                 <div class="timeline-item">
+                    <span class="timeline-date">2023 - 2024</span>
+                    <h3>Code in Place - Python Programming Certificate</h3>
+                    <h4>Stanford University</h4>
+                    <p>Completed Stanford's introductory Python programming course with distinction. Final project: Scientific Calculator application with GUI interface.</p>
+                </div>
+                <div class="timeline-item">
                     <span class="timeline-date">2019 - 2022</span>
                     <h3>High School Diploma - Mathematics & Computer Science</h3>
                     <h4>Ecole Technique Saint Kizito Save</h4>
@@ -785,6 +872,35 @@
         <section id="project">
             <h1>PROJECTS</h1>
             <div class="projects-grid">
+                <!-- CleanLab Rwanda Project -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #2196F3, #0D47A1);">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>CleanLab Rwanda - Laundry Service Platform</h3>
+                        <p><em>Full-Stack Web Application - Personal Project</em></p>
+                        <p>A complete laundry service booking platform where users can schedule pickups, select services, track orders, and make payments online. Features user authentication, service management, and real-time notifications.</p>
+                        <div class="project-links">
+                            <a href="https://mupenzi-final-cleanlab-project.vercel.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/innocent-gift/cleanlab-rwanda" target="_blank" class="project-link secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Python Calculator Project -->
                 <div class="project-card">
                     <div class="project-img" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
                         <i class="fas fa-calculator"></i>
@@ -792,7 +908,12 @@
                     <div class="project-content">
                         <h3>Python Scientific Calculator</h3>
                         <p><em>Code in Place Final Project - Stanford University</em></p>
-                        <p>A fully-featured scientific calculator built with Python and Tkinter GUI. Supports basic arithmetic, scientific functions, graphing capabilities, and equation solving.</p>
+                        <p>A fully-featured scientific calculator built with Python and Tkinter GUI. Supports basic arithmetic, scientific functions, graphing capabilities, and equation solving. Developed as final project for Stanford's Code in Place course.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/innocent-gift/python-calculator" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                         <div class="tech-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Tkinter</span>
@@ -801,14 +922,21 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Weather Analysis Project -->
                 <div class="project-card">
-                    <div class="project-img" style="background: linear-gradient(135deg, #2196F3, #0D47A1);">
+                    <div class="project-img" style="background: linear-gradient(135deg, #FF9800, #EF6C00);">
                         <i class="fas fa-cloud-sun-rain"></i>
                     </div>
                     <div class="project-content">
                         <h3>Weather Analysis Program</h3>
                         <p><em>African Leadership University - Jan 2025 to Mar 2025</em></p>
                         <p>Python application that analyzes and visualizes weather patterns to help farmers make informed agricultural decisions based on temperature and precipitation data.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/innocent-gift/weather-analysis" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                         <div class="tech-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Pandas</span>
@@ -817,19 +945,27 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Personal Portfolio Project -->
                 <div class="project-card">
                     <div class="project-img" style="background: linear-gradient(135deg, #9C27B0, #6A1B9A);">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Full-Stack E-Commerce Platform</h3>
-                        <p><em>Personal Project - In Development</em></p>
-                        <p>A complete e-commerce solution with React frontend, Node.js backend, and MongoDB database. Features user authentication, product management, and payment processing.</p>
+                        <h3>Personal Portfolio Website</h3>
+                        <p><em>Responsive Web Design - June 2025</em></p>
+                        <p>A fully responsive portfolio website showcasing my skills, projects, and experience. Built with pure HTML, CSS, and JavaScript with modern design principles and smooth animations.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> You're Here!
+                            </a>
+                        </div>
                         <div class="tech-tags">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">UI/UX</span>
                         </div>
                     </div>
                 </div>
@@ -847,6 +983,7 @@
                         <div>
                             <h3>Email</h3>
                             <p>i.nkurunziz@alustudent.com</p>
+                            <p>innocent.nkurunziza@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -856,6 +993,7 @@
                         <div>
                             <h3>Phone</h3>
                             <p>+250 78 5765 980</p>
+                            <p>+250 78 7654 321</p>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -865,6 +1003,7 @@
                         <div>
                             <h3>Location</h3>
                             <p>Kigali, Rwanda</p>
+                            <p>Available for remote work worldwide</p>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -874,6 +1013,7 @@
                         <div>
                             <h3>Availability</h3>
                             <p>Open to freelance projects and full-time opportunities</p>
+                            <p>Currently seeking internship opportunities</p>
                         </div>
                     </div>
                 </div>
@@ -1062,6 +1202,14 @@
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(card);
+            });
+            
+            // Add achievement badge animation
+            document.querySelectorAll('.achievement-badge').forEach(badge => {
+                badge.style.opacity = '0';
+                badge.style.transform = 'scale(0.8)';
+                badge.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(badge);
             });
         });
     </script>
